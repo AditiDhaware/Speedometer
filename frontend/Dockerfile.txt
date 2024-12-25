@@ -1,0 +1,15 @@
+# Use Node.js image
+FROM node:16
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY package.json package-lock.json ./
+RUN npm install
+
+# Copy app files
+COPY . .
+
+# Run the app
+CMD ["npm", "start"]
